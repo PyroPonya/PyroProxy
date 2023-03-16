@@ -20,7 +20,7 @@ var port = process.env.PORT || 8080;
 var cors_proxy = require('pyroproxy');
 cors_proxy.createServer({
     originWhitelist: [], // Allow all origins
-    requireHeader: ['origin', 'x-requested-with'],
+    requireHeader: ['origin', 'x-requested-with', 'X-Client-Ip', 'X-Visitor-Id'],
     removeHeaders: ['cookie', 'cookie2']
 }).listen(port, host, function() {
     console.log('Running PyroProxy on ' + host + ':' + port);
